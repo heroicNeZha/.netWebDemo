@@ -444,6 +444,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\" />
     <Folder Include="Controllers\" />
+    <Folder Include="images\" />
+    <Folder Include="Manager\" />
+    <Folder Include="Student\" />
+    <Folder Include="Teacher\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
