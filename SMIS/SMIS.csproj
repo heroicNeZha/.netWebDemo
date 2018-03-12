@@ -446,6 +446,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
     <Folder Include="Manager\" />
+    <Folder Include="Menu\" />
     <Folder Include="Student\" />
     <Folder Include="Teacher\" />
   </ItemGroup>
