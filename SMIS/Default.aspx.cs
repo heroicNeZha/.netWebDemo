@@ -9,9 +9,51 @@ namespace SMIS
 {
     public partial class _Default : Page
     {
+        CommDB mydb = new CommDB();
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Clear();
+        }
 
+        protected void LogIn(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                string mysql;
+                int i;
+                string uname = "";
+                switch (identity.SelectedIndex)
+                {
+                    case 0:
+                        mysql = "SELECT mname FROM manager WHERE mloginname = '" + username.Text + "' AND mpass = '" + Password.Text + "'";
+                        i = mydb.Rownum(mysql, "manager", ref uname);
+                        if (i > 0)
+                        {
+                            Session["uname"] = uname;
+                            Session["utype"] = "0";
+                            Server.Transfer("~/Manager/welcome.aspx");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('对不起!有错误请查实!');</script>");
+                        }
+                        break;
+                    case 1:
+                        mysql = "SELECT uname FROM user_ WHERE uloginname = '" + username.Text + "' AND upass = '" + Password.Text + "'";
+                        i = mydb.Rownum(mysql, "user", ref uname);
+                        if (i > 0)
+                        {
+                            Session["uname"] = uname;
+                            Session["utype"] = "1";
+                            Server.Transfer("~/User/welcome.aspx");
+                        }
+                        else
+                        {
+                            Response.Write("<script>alert('对不起!有错误请查实!');</script>");
+                        }
+                        break;
+                }
+            }
         }
     }
 }
