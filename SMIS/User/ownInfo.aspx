@@ -5,31 +5,35 @@
         <h3>>>>旅客信息</h3>
     </div>
     <div style="width:70%" class="well">
-        <div style="margin-left:20%">
-             <div class="input-group" style="">
+        <div class="input-group" style="margin-left:30%;margin-top:20px">
              <span class="input-group-addon">姓名</span>
-            <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" />
+            <asp:TextBox runat="server" ID="name" CssClass="form-control" />
             </div>
 
-        <div class="input-group">
-             <span class="input-group-addon">用户名</span>
-            <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" />
+        <div class="input-group" style="margin-left:30%;margin-top:20px">
+             <span class="input-group-addon">账号</span>
+            <asp:TextBox runat="server" ID="username" CssClass="form-control" />
             </div>
 
-        <div class="input-group">
+        <div class="input-group" style="margin-left:30%;margin-top:20px">
              <span class="input-group-addon">密码</span>
-            <asp:TextBox runat="server" ID="TextBox3" CssClass="form-control" />
+            <asp:TextBox runat="server" ID="password" CssClass="form-control" />
             </div>
 
-        <div class="input-group">
-             <span class="input-group-addon">手机号</span>
-            <asp:TextBox runat="server" ID="TextBox4" CssClass="form-control" />
+        <div class="input-group" style="margin-left:30%;margin-top:20px">
+             <span class="input-group-addon">手机</span>
+            <asp:TextBox runat="server" ID="tel" CssClass="form-control" />
             </div>
 
-        <div class="input-group">
+        <div class="input-group" style="margin-left:30%;margin-top:20px">
              <span class="input-group-addon">余额</span>
-            <asp:TextBox runat="server" ID="TextBox5" CssClass="form-control" />
+            <asp:TextBox runat="server" ID="money" CssClass="form-control" />
             </div>
-        </div>
+         <div style="margin-left:33%;margin-top:20px">
+            <div class="input-group">
+                <asp:Button ID="submit" runat="server" Text="保存" CssClass="btn-primary" OnClick="submit_Click" />
+                <asp:HiddenField ID="uid" runat="server" />
+            </div>
+    </div>
     </div>
 </asp:Content>

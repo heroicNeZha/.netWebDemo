@@ -233,6 +233,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="images\585ddfaccceb0.jpg" />
     <Content Include="Manager\flightInfo.aspx" />
     <Content Include="Manager\userInfo.aspx" />
     <Content Include="Manager\welcome.aspx" />
@@ -269,6 +270,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="User\bookTicket.aspx" />
     <Content Include="User\ownInfo.aspx" />
     <Content Include="User\welcome.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -468,6 +470,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="User\bookTicket.aspx.cs">
+      <DependentUpon>bookTicket.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\bookTicket.aspx.designer.cs">
+      <DependentUpon>bookTicket.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User\ownInfo.aspx.cs">
       <DependentUpon>ownInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -495,7 +504,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Themes\" />
     <Folder Include="Controllers\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

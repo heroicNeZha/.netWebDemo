@@ -3634,6 +3634,8 @@ input[type="button"].btn-block {
   position: relative;
   display: table;
   border-collapse: separate;
+    top: 0px;
+    left: 0px;
 }
 
 .input-group.col {
