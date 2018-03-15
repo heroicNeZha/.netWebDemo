@@ -31,6 +31,25 @@ namespace SMIS
             }
             myconn.Close();
             return i;
+        }
+
+        public int Rownum(string sql, string tname, ref string sname, ref string sid)
+        {
+            int i = 0;
+            string mystr = ConfigurationManager.AppSettings["myconnstring"];
+            SqlConnection myconn = new SqlConnection();
+            myconn.ConnectionString = mystr;
+            myconn.Open();
+            SqlCommand mycmd = new SqlCommand(sql, myconn);
+            SqlDataReader myreader = mycmd.ExecuteReader();
+            while (myreader.Read())  //循环读取信息
+            {
+                sname = myreader[0].ToString();
+                sid = myreader[1].ToString();
+                i++;
+            }
+            myconn.Close();
+            return i;
             // 下载于www.51aspx.com
         }
         //******************************************************************

@@ -66,7 +66,7 @@
 
          <div style="margin-left:33%;margin-top:20px">
             <div class="input-group">
-                <asp:Button ID="submit" runat="server" Text="查找" CssClass="btn-primary" />
+                <asp:Button ID="submit" runat="server" Text="查找" CssClass="btn-primary" OnClick="submit_Click" />
             </div>
     </div>
     </div>

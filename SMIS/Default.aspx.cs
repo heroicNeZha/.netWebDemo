@@ -39,11 +39,13 @@ namespace SMIS
                         }
                         break;
                     case 1:
-                        mysql = "SELECT uname FROM user_ WHERE uloginname = '" + username.Text + "' AND upass = '" + Password.Text + "'";
-                        i = mydb.Rownum(mysql, "user", ref uname);
+                        string uid = "";
+                        mysql = "SELECT uname,uid FROM user_ WHERE uloginname = '" + username.Text + "' AND upass = '" + Password.Text + "'";
+                        i = mydb.Rownum(mysql, "user", ref uname,ref uid);
                         if (i > 0)
                         {
                             Session["uname"] = uname;
+                            Session["uid"] = uid;
                             Session["utype"] = "1";
                             Server.Transfer("~/User/welcome.aspx");
                         }
