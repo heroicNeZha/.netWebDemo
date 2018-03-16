@@ -7,7 +7,7 @@
                             &nbsp; 
                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderStyle="Solid" CellPadding="15" 
         CssClass="table-bordered" DataSourceID="SqlDataSource2" Font-Size="Large" Height="50px" HorizontalAlign="Center" AllowPaging="True" 
-        DataKeyNames="ID" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        DataKeyNames="航班号,ID" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
         <HeaderStyle BackColor="White" />
         <Columns>
@@ -20,6 +20,7 @@
             <asp:BoundField DataField="起飞时间" HeaderText="起飞时间" SortExpression="起飞时间" />
             <asp:BoundField DataField="预定时间" HeaderText="预定时间" SortExpression="预定时间" />
             <asp:BoundField DataField="价格" HeaderText="价格" SortExpression="价格" />
+            <asp:CommandField ShowSelectButton="true" ButtonType="Button" />
         </Columns>
     </asp:GridView>
 

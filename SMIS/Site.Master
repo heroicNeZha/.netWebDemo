@@ -54,7 +54,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">主页</a></li>
-                        <li><a runat="server" href="~/About">关于</a></li>
+                        <li><a runat="server" href="~/">关于</a></li>
                         <li><a runat="server" href="~/">联系方式</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
@@ -84,7 +84,7 @@
                                 <li><a runat="server" href="~/User/welcome.aspx">主页</a></li>
                                 <li><a runat="server" href="~/User/ownInfo.aspx">个人信息</a></li>
                                 <li><a runat="server" href="~/User/bookTicket.aspx">订票</a></li>
-                                <li><a runat="server" href="~/Contact">退票</a></li>
+                                <li><a runat="server" href="~/User/returnTicket.aspx">退票</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Session["uname"]  %> !</a></li>

@@ -13,6 +13,11 @@ namespace SMIS.User
         CommDB mycom = new CommDB();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["uname"] == null)
+            {
+                Response.Write("<script>alert('请先登录!');</script>");
+                Response.Redirect("~/", false);
+            }
             if (!IsPostBack)
             {
                 String mysql = "SELECT * FROM user_ WHERE uname = '" + Session["uname"] + "'";

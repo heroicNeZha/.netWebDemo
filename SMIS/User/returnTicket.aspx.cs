@@ -12,7 +12,11 @@ namespace SMIS.User
         CommDB mycmd = new CommDB();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["uname"] == null)
+            {
+                Response.Write("<script>alert('请先登录!');</script>");
+                Response.Redirect("~/", false);
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,6 +43,7 @@ namespace SMIS.User
                 if (mycmd.ExecuteNonQuery(mysql))
                 {
                     Response.Write("<script>alert('退票成功!');</script>");
+                    Response.Redirect("~/User/returnTicket.aspx", false);
                 }
                 else
                 {

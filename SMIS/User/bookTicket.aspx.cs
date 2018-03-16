@@ -17,36 +17,41 @@ namespace SMIS.User
         String id = "0";
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["uname"] == null)
+            {
+                Response.Write("<script>alert('请先登录!');</script>");
+                Response.Redirect("~/", false);
+            }
             MultiView1.SetActiveView(View1);
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             id = GridView1.SelectedDataKey.Value.ToString();
-            Label1.Text = "您选择的航班次为:<br><span style='font - family:微软雅黑; font - size:Large; font-weight:bold;'>" 
-                + id +"</span>";
+            Label1.Text = "您选择的航班次为:<br><span style='font - family:微软雅黑; font - size:Large; font-weight:bold;'>"
+                + id + "</span>";
             Calendar1.SelectedDate = Calendar1.TodaysDate;
             MultiView1.SetActiveView(View2);
         }
 
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
-            date = Calendar1.SelectedDate.Year.ToString() + "/" 
-                + Calendar1.SelectedDate.Month.ToString() + "/" 
+            date = Calendar1.SelectedDate.Year.ToString() + "/"
+                + Calendar1.SelectedDate.Month.ToString() + "/"
                 + Calendar1.SelectedDate.Day.ToString();
             MultiView1.SetActiveView(View2);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            String today =DateTime.Today.Year.ToString() + "/"
-                +DateTime.Today.Month.ToString() + "/"
-                +DateTime.Today.Day.ToString();
+            String today = DateTime.Today.Year.ToString() + "/"
+                + DateTime.Today.Month.ToString() + "/"
+                + DateTime.Today.Day.ToString();
             id = GridView1.SelectedDataKey.Value.ToString();
             date = Calendar1.SelectedDate.Year.ToString() + "/"
                 + Calendar1.SelectedDate.Month.ToString() + "/"
                 + Calendar1.SelectedDate.Day.ToString();
-            String mysql = "INSERT INTO [airDB].[dbo].[book]([uid],[fid],[btime],[fdate]) VALUES(" 
+            String mysql = "INSERT INTO [airDB].[dbo].[book]([uid],[fid],[btime],[fdate]) VALUES("
                 + "'" + Session["uid"]
                + "','" + id
                + "','" + today
@@ -54,7 +59,15 @@ namespace SMIS.User
                + "')";
             if (mycmd.ExecuteNonQuery(mysql))
             {
-                Response.Write("<script>alert('预定成功!');</script>");
+                String mysql1 = "UPDATE user_ SET umoney = '1000' where uid = "+Session["uid"];
+                if (mycmd.ExecuteNonQuery(mysql))
+                {
+                    Response.Write("<script>alert('预定成功!');</script>"+mysql1);
+                }
+                else
+                {
+                    Response.Write("<script>alert('预定失败!" + mysql + "');</script>");
+                }
             }
             else
             {
@@ -71,16 +84,17 @@ namespace SMIS.User
         protected void submit_Click(object sender, EventArgs e)
         {
             string condstr = "";
-            if (startplace.Text != null)
+            if (!startplace.Text.Equals(""))
             {
                 condstr += "始发地 = '" + startplace.Text + "'";
-                if(endplace.Text != null)
+                if (!endplace.Text.Equals(""))
                 {
                     condstr += "AND 目的地 = '" + endplace.Text + "'";
                 }
             }
-            else{
-                if (endplace.Text != null)
+            else
+            {
+                if (!endplace.Text.Equals(""))
                 {
                     condstr += "目的地 = '" + endplace.Text + "'";
                 }
@@ -89,9 +103,16 @@ namespace SMIS.User
             DataSet myds = mycmd.ExecuteQuery(mysql, "flight");
             DataView mydv = myds.Tables["flight"].DefaultView;
             mydv.RowFilter = condstr;
-            GridView1.DataSource = mydv;
-            GridView1.DataSourceID = null;
-            GridView1.DataBind();
+            if (mydv.Count == 0)
+            {
+                Response.Write("<script>alert('无此航班!');</script>");
+            }
+            else
+            {
+                GridView1.DataSourceID = null;
+                GridView1.DataSource = mydv;
+                GridView1.DataBind();
+            }
         }
     }
 }
