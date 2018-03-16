@@ -15,7 +15,7 @@ namespace SMIS
         //******************************************************************
         //返回SELECT语句执行后记录集中的行数
         //******************************************************************
-        public int Rownum(string sql, string tname, ref string sname)
+        public int Rownum(string sql, ref string sname)
         {
             int i = 0;
             string mystr = ConfigurationManager.AppSettings["myconnstring"];
@@ -33,7 +33,7 @@ namespace SMIS
             return i;
         }
 
-        public int Rownum(string sql, string tname, ref string sname, ref string sid)
+        public int Rownum(string sql, ref string sname, ref string sid)
         {
             int i = 0;
             string mystr = ConfigurationManager.AppSettings["myconnstring"];
@@ -46,6 +46,25 @@ namespace SMIS
             {
                 sname = myreader[0].ToString();
                 sid = myreader[1].ToString();
+                i++;
+            }
+            myconn.Close();
+            return i;
+            // 下载于www.51aspx.com
+        }
+
+        public int Rownum(string sql, string tname, ref string sname)
+        {
+            int i = 0;
+            string mystr = ConfigurationManager.AppSettings["myconnstring"];
+            SqlConnection myconn = new SqlConnection();
+            myconn.ConnectionString = mystr;
+            myconn.Open();
+            SqlCommand mycmd = new SqlCommand(sql, myconn);
+            SqlDataReader myreader = mycmd.ExecuteReader();
+            while (myreader.Read())  //循环读取信息
+            {
+                sname = myreader[tname].ToString();
                 i++;
             }
             myconn.Close();

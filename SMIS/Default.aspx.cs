@@ -26,7 +26,7 @@ namespace SMIS
                 {
                     case 0:
                         mysql = "SELECT mname FROM manager WHERE mloginname = '" + username.Text + "' AND mpass = '" + Password.Text + "'";
-                        i = mydb.Rownum(mysql, "manager", ref uname);
+                        i = mydb.Rownum(mysql,ref uname);
                         if (i > 0)
                         {
                             Session["uname"] = uname;
@@ -41,7 +41,7 @@ namespace SMIS
                     case 1:
                         string uid = "";
                         mysql = "SELECT uname,uid FROM user_ WHERE uloginname = '" + username.Text + "' AND upass = '" + Password.Text + "'";
-                        i = mydb.Rownum(mysql, "user", ref uname,ref uid);
+                        i = mydb.Rownum(mysql, ref uname,ref uid);
                         if (i > 0)
                         {
                             Session["uname"] = uname;

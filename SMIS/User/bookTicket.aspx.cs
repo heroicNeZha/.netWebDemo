@@ -47,7 +47,7 @@ namespace SMIS.User
             String today = DateTime.Today.Year.ToString() + "/"
                 + DateTime.Today.Month.ToString() + "/"
                 + DateTime.Today.Day.ToString();
-            id = GridView1.SelectedDataKey.Value.ToString();
+            id = GridView1.SelectedDataKey.Values["ID"].ToString();
             date = Calendar1.SelectedDate.Year.ToString() + "/"
                 + Calendar1.SelectedDate.Month.ToString() + "/"
                 + Calendar1.SelectedDate.Day.ToString();
@@ -59,15 +59,22 @@ namespace SMIS.User
                + "')";
             if (mycmd.ExecuteNonQuery(mysql))
             {
-                String mysql1 = "UPDATE user_ SET umoney = '1000' where uid = "+Session["uid"];
-                if (mycmd.ExecuteNonQuery(mysql))
+                String mysql1 = "Select [umoney] FROM [airDB].[dbo].[user_] where uid = " + Session["uid"];
+                string money = "";
+                if(mycmd.Rownum(mysql1,"umoney",ref money) > 0)
                 {
-                    Response.Write("<script>alert('预定成功!');</script>"+mysql1);
+                    int price = int.Parse(GridView1.SelectedDataKey.Values["价格"].ToString());
+                    String mysql2 = "UPDATE user_ SET umoney = '"+(decimal.Parse(money)-price)+"' where uid = "+ Session["uid"];
+                    if (mycmd.ExecuteNonQuery(mysql2))
+                    {
+                        Response.Write("<script>alert('预定成功!');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('预定失败!" + mysql + "');</script>");
+                    }
                 }
-                else
-                {
-                    Response.Write("<script>alert('预定失败!" + mysql + "');</script>");
-                }
+               
             }
             else
             {

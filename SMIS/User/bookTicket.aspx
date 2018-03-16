@@ -8,7 +8,7 @@
             <td>
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderStyle="Solid" CellPadding="15" 
         CssClass="table-bordered" DataSourceID="SqlDataSource2"  Font-Size="Large" Height="50px" HorizontalAlign="Center" AllowPaging="True" 
-        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="ID">
+        OnSelectedIndexChanged="GridView1_SelectedIndexChanged" DataKeyNames="ID,价格">
         <AlternatingRowStyle BackColor="White" />
         <HeaderStyle BackColor="White" />
         <Columns>
