@@ -38,7 +38,7 @@
                         <asp:Label runat="server" AssociatedControlID="identity" CssClass="col-md-2 control-label">用户类型</asp:Label>
                         <div class="col-md-10">
                             <asp:RadioButtonList ID="identity" runat="server" RepeatDirection="Horizontal" CellPadding="3">
-                                <asp:ListItem selected="true">管理员</asp:ListItem>
+                                <asp:ListItem Selected="true">管理员</asp:ListItem>
                                 <asp:ListItem>用户</asp:ListItem>
                             </asp:RadioButtonList>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="identity" CssClass="text-danger" ErrorMessage="“用户类型”字段是必填字段。" />

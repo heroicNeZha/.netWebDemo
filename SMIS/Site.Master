@@ -4,7 +4,7 @@
 
 <html lang="zh">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - 机票订票系统</title>
@@ -12,7 +12,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -49,7 +49,7 @@
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">机票订票系统</a>
                 </div>
-                    <%if (Session["uname"]==null)
+                <%if (Session["uname"]==null)
                         { %>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -57,45 +57,45 @@
                         <li><a runat="server" href="~/">关于</a></li>
                         <li><a runat="server" href="~/">联系方式</a></li>
                     </ul>
-                     <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/">注册</a></li>
-                                <li><a runat="server" href="~/">登录</a></li>
-                            </ul>
-                    </div>
-                        <%}else if(Session["utype"].Equals("0"))
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/">注册</a></li>
+                        <li><a runat="server" href="~/">登录</a></li>
+                    </ul>
+                </div>
+                <%}else if(Session["utype"].Equals("0"))//管理员导航
     { %>
-                         <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a runat="server" href="~/Manager/welcome.aspx">主页</a></li>
-                                <li><a runat="server" href="~/Manager/userInfo.aspx">旅客信息</a></li>
-                                <li><a runat="server" href="~/Manager/flightInfo.aspx">航班管理</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Session["uname"]  %> !</a></li>
-                                <li>
-                                    <a runat="server" href="~/Default.aspx">注销</a>
-                                </li>
-                            </ul>
-                             </div>
-                    <%}else if (Session["utype"].Equals("1"))
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/Manager/welcome.aspx">主页</a></li>
+                        <li><a runat="server" href="~/Manager/userInfo.aspx">旅客信息</a></li>
+                        <li><a runat="server" href="~/Manager/flightInfo.aspx">航班管理</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Session["uname"]  %> !</a></li>
+                        <li>
+                            <a runat="server" href="~/Default.aspx">注销</a>
+                        </li>
+                    </ul>
+                </div>
+                <%}else if (Session["utype"].Equals("1"))//游客导航
                         {%>
                 <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a runat="server" href="~/User/welcome.aspx">主页</a></li>
-                                <li><a runat="server" href="~/User/ownInfo.aspx">个人信息</a></li>
-                                <li><a runat="server" href="~/User/bookTicket.aspx">订票</a></li>
-                                <li><a runat="server" href="~/User/returnTicket.aspx">退票</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Session["uname"]  %> !</a></li>
-                                <li>
-                                    <a runat="server" href="~/Default.aspx">注销</a>
-                                </li>
-                            </ul>
-                             </div>
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/User/welcome.aspx">主页</a></li>
+                        <li><a runat="server" href="~/User/ownInfo.aspx">个人信息</a></li>
+                        <li><a runat="server" href="~/User/bookTicket.aspx">订票</a></li>
+                        <li><a runat="server" href="~/User/returnTicket.aspx">退票</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Session["uname"]  %> !</a></li>
+                        <li>
+                            <a runat="server" href="~/Default.aspx">注销</a>
+                        </li>
+                    </ul>
+                </div>
                 <%
                         }
-                         %>
+                %>
             </div>
         </div>
         <div class="container body-content">

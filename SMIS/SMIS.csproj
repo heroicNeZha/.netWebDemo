@@ -229,6 +229,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="App_Themes\blue\blue.skin" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\585ddfaccceb0.jpg" />
     <Content Include="Manager\flightInfo.aspx" />
@@ -277,7 +278,6 @@
     </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Views\web.config" />
@@ -398,7 +398,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="CommDB.cs" />
+    <Compile Include="App_Code\CommDB.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -484,9 +484,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
-    <Folder Include="App_Themes\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
