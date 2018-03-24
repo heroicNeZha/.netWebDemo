@@ -112,7 +112,7 @@ namespace SMIS.User
             mydv.RowFilter = condstr;
             if (mydv.Count == 0)
             {
-                Response.Write("<script>alert('无此航班!');</script>");
+                Response.Write("<script>alert('没有此航班!');</script>");
             }
             else
             {
