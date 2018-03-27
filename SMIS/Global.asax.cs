@@ -19,5 +19,10 @@ namespace SMIS
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+       void Session_End(object sender, EventArgs e)
+       {
+            
+       }
     }
 }

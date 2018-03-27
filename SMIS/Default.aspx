@@ -6,6 +6,7 @@
     <div class="jumbotron">
         <h1>机票订票系统</h1>
         <p class="lead">欢迎使用本系统,请先登录</p>
+        <asp:Button ID="Button1" runat="server" Text="停止session" OnClick="Button1_Click" />
     </div>
 
     <div class="row">
