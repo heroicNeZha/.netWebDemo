@@ -18,11 +18,13 @@ namespace SMIS
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Application["start"] = 1;
+            Application["end"] = 0;
         }
 
        void Session_End(object sender, EventArgs e)
        {
-            
+            Application["end"] = 1;
        }
     }
 }

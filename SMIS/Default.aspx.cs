@@ -13,6 +13,14 @@ namespace SMIS
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Clear();
+            if ((int)Application["end"] == 1)
+            {
+                Button1.Text = "session已停止";
+            }
+            else
+            {
+                Button1.Text = "停止session";
+            }
         }
 
         protected void LogIn(object sender, EventArgs e)

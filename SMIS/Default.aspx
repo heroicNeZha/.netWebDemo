@@ -6,14 +6,14 @@
     <div class="jumbotron">
         <h1>机票订票系统</h1>
         <p class="lead">欢迎使用本系统,请先登录</p>
-        <asp:Button ID="Button1" runat="server" Text="停止session" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" Text="代码没起作用" OnClick="Button1_Click" />
     </div>
 
     <div class="row">
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h4>使用本地帐户登录。</h4>
+                    <h4>使用本地帐户登录<%:Application["end"] %>。</h4>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
