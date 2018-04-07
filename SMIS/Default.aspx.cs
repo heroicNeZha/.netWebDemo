@@ -68,6 +68,7 @@ namespace SMIS
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            //不可用
             Session.Abandon();
         }
     }

@@ -50,7 +50,6 @@ namespace SMIS
             }
             myconn.Close();
             return i;
-            // 下载于www.51aspx.com
         }
 
         public int Rownum(string sql, string tname, ref string sname)
@@ -69,7 +68,6 @@ namespace SMIS
             }
             myconn.Close();
             return i;
-            // 下载于www.51aspx.com
         }
         //******************************************************************
         //执行SQL语句，返回是否成功执行。SQL语句最好是如下：
